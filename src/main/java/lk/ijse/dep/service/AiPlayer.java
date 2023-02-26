@@ -22,7 +22,10 @@ public class AiPlayer extends Player{
         if (legalMove){
             board.updateMove(num, Piece.GREEN);
             board.getBoardUI().update(num, false);
-            board.findWinner();
+            Winner winner = board.findWinner();
+            if(winner.getWinningPiece().equals(Piece.BLUE)||winner.getWinningPiece().equals(Piece.GREEN)) {
+                board.getBoardUI().notifyWinner(winner);
+            }
 
         }
     }
