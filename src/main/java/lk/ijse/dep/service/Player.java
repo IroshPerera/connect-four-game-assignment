@@ -6,9 +6,11 @@ public class Player {
     public Player(){}
 
     public Player(Board board){
-        this.board=board;
+
     }
     public void movePiece(int col){
 
+
     }
+
 }

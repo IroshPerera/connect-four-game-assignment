@@ -4,16 +4,14 @@ public class BoardImpl implements Board{
     private Piece[][] pieces;
     private BoardUI boardUI;
 
-    public  BoardImpl(){
-
-    }
+    public  BoardImpl(){}
     public BoardImpl(BoardUI boardUI){
         setBoardUI(boardUI);
         this.pieces=new Piece[NUM_OF_COLS][NUM_OF_ROWS];
 
         //Initialize value to the 2D array
         for (int i = 0; i < pieces.length; i++) {
-            for (int j = 0; j < 5; j++) {
+            for (int j = 0; j < NUM_OF_ROWS; j++) {
                 pieces[i][j] = Piece.EMPTY;
             }
         }
@@ -68,7 +66,7 @@ public class BoardImpl implements Board{
 
         boolean existLegal=false;
         for (int i = 0; i < pieces.length; i++) {
-            for (int j = 0; j < 5; j++) {
+            for (int j = 0; j < NUM_OF_ROWS; j++) {
                 if (pieces[i][j].equals(Piece.EMPTY)) {
                     existLegal = true;
                     break;
@@ -80,12 +78,15 @@ public class BoardImpl implements Board{
 
     @Override
     public void updateMove(int col, Piece move) {
-
-    }
+        int nextAvailableSpot = findNextAvailableSpot(col);
+        if(nextAvailableSpot!=-1) {
+            pieces[col][nextAvailableSpot] = move;
+        }
+        }
 
     @Override
     public Winner findWinner() {
-        return null;
+       return null;
     }
 
 
