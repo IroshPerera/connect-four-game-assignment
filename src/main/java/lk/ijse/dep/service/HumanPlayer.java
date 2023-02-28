@@ -3,7 +3,6 @@ package lk.ijse.dep.service;
 public class HumanPlayer extends Player{
 
     public HumanPlayer(Board newBoard) {
-
         this.board=newBoard;
     }
     @Override
@@ -15,10 +14,6 @@ public class HumanPlayer extends Player{
             if(winner.getWinningPiece().equals(Piece.BLUE)||winner.getWinningPiece().equals(Piece.GREEN)) {
                 board.getBoardUI().notifyWinner(winner);
             }
-
         }
-
-        }
-
-
+    }
 }

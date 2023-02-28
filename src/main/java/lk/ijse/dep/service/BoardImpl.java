@@ -24,9 +24,6 @@ public class BoardImpl implements Board {
         this.boardUI = boardUI;
     }
 
-    public Piece[][] getPieces() {
-        return pieces;
-    }
 
     public void setPieces(Piece[][] pieces) {
         this.pieces = pieces;
@@ -87,11 +84,17 @@ public class BoardImpl implements Board {
     }
 
     @Override
+    public void updateMove(int col, int row, Piece move) {
+            pieces[col][row] = move;
+    }
+
+    @Override
     public Winner findWinner() {
 
         if(!existLegalMove()){
             getBoardUI().notifyWinner(new Winner(Piece.EMPTY));
         }
+
         for (int i = 0; i < NUM_OF_COLS; i++) {
             if (pieces[i][1].equals(Piece.BLUE) & pieces[i][2].equals(Piece.BLUE) & pieces[i][3].equals(Piece.BLUE)) {
                 if (pieces[i][0].equals(Piece.BLUE)) {
@@ -128,8 +131,6 @@ public class BoardImpl implements Board {
                         return new Winner(Piece.GREEN, 2, j, 5, j);
                     }
         }
-
-
 
         return new Winner(Piece.EMPTY);
     }
