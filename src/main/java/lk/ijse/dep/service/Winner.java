@@ -9,7 +9,9 @@ public class Winner {
 
     public Winner(){}
     public Winner(Piece winningPiece){
+        //set arguments
         setWinningPiece(winningPiece);
+        //setting -1 to the attributes through setter methods
         setCol1(-1);
         setCol2(-1);
         setRow1(-1);

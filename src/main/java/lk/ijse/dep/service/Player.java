@@ -5,9 +5,7 @@ public class Player {
 
     public Player(){}
 
-    public Player(Board board){
-
-    }
+    public Player(Board board){}
     public void movePiece(int col){
 
 

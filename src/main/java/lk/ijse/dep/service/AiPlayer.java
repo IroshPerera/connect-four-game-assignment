@@ -6,6 +6,7 @@ public class AiPlayer extends Player {
         this.board=board;
     }
 
+    //method 01 using minmax
    @Override
     public void movePiece(int col){
 
@@ -49,11 +50,13 @@ public class AiPlayer extends Player {
         }
         int num;
         do{
-            num= (int) (Math.random() * 6);
+            num= (int) (Math.random() * 6.0D);
         }while (!board.isLegalMove(num));
 
         return num;
     }
+    //method 02 using minmax
+
     /*public void movePiece(int col) {
         col = this.predictColumn();
         this.board.updateMove(col, Piece.GREEN);
